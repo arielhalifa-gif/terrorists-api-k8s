@@ -2,6 +2,7 @@ from fastapi import fastAPI, UploadFile
 from validations import Functions as f
 from db import Connection
 import pandas as pd
+import uvicorn
 
 app = fastAPI()
 
@@ -14,3 +15,7 @@ def top_5_threats(file: UploadFile):
     result =Connection.insert_to_db(validate_top_5)
     return {"count": len(validate_top_5),
             "top": validate_top_5}
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host = "0.0.0.0", port = "8000")
