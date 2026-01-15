@@ -9,12 +9,12 @@ app = FastAPI()
 
 @app.post("/top-threats")
 def top_5_threats(file: UploadFile):
-    df = pd.read_csv(file)
+    df = pd.read_csv(file.filename)
     top_5 = df.sort_values(by = ["danger_rate"], ascending = False).head()
-    # validate_top_5 = f.validating_terr(top_5)
-    # result =Connection.insert_to_db(top_5)
-    return {"count": len(top_5),
-            "top": top_5}
+    validate_top_5 = f.validating_terr(top_5.to_dict)
+    result =Connection.insert_to_db(validate_top_5)
+    return {"count": len(validate_top_5),
+            "top": validate_top_5}
 
 
 if __name__ == "__main__":

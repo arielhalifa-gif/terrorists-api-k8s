@@ -4,9 +4,10 @@ import pandas as pd
 class Functions:
 
     @staticmethod
-    def validating_terr(top5):
+    def validating_terr(top5: dict):
         terr_list = []
         for terr in top5:
-            terr_list.append(Terr(terr["name"], terr["location"], terr["danger_rate"]).__dict__())
+            temp_terrorist = Terr(name=terr["name"], location=terr["location"], danger_rate=terr["danger_rate"])
+            terr_list.append(temp_terrorist.__dict__())
         
         return terr_list

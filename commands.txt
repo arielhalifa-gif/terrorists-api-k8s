@@ -1,6 +1,6 @@
 ***Docker***
 
-docker build -t arielhalifa/threat-api:v1
+docker build -t arielhalifa/threat-api:v1 .
 
 docker push arielhalifa/threat-api:v1
 
