@@ -7,8 +7,6 @@ class Functions:
     def validating_terr(top5):
         terr_list = []
         for terr in top5:
-            terr_list.append(Terr(terr.name, terr.location, terr.danger_rate).__dict__())
+            terr_list.append(Terr(terr["name"], terr["location"], terr["danger_rate"]).__dict__())
         
         return terr_list
-    
-    def insert_to_mongo(df):
