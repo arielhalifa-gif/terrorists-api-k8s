@@ -1,0 +1,20 @@
+***Docker***
+
+docker build -t arielhalifa/threat-api:v1
+
+docker push arielhalifa/threat-api:v1
+
+
+
+***openshift***
+
+oc apply -f mongo-statefulset.yaml
+oc apply -f mongo-service.yaml
+
+oc apply -f api-deployment.yaml
+oc apply -f api-service.yaml
+
+oc get pods
+
+oc expose svc/threat-api-svc
+oc get rout threat-api-svc
